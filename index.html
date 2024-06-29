@@ -4,30 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catalogo</title>
+    <link rel="stylesheet" href="estylo.css">
     <script src="/js/jquery-3.7.1.min.js"></script>
     <script src="/js/turn.min.js"></script>
-    <script>
-        $(document).ready(function(){
-            $("#flipbook").turn({
-            width: 400,
-            height: 300,
-            autoCenter: true
-            });
-        });
-    </script>
+    <script src="/js/hoja.js"></script>
+
+
 </head>
 <body>
-    Let's code
-<div id="flipbook">
-	<div class="hard"> Turn.js </div>
-	<div class="hard"></div>
-	<div> Page 1 </div>
-	<div> Page 2 </div>
-	<div> Page 3 </div>
-	<div> Page 4 </div>
-	<div class="hard"></div>
-	<div class="hard"></div>
-</div>
+    <div id="flipbook">
+        <div class="page page1">
+            <h3>Catalogo Otoño</h3>
+            <img src="/img/IMG_6512.png" alt="Descripción de la Imagen 1">
+            <div class="details"></div>
+        </div>
+        <div class="page">
+            
+            <img src="/img/Modelo35espalda2.jpeg" alt="Descripción de la Imagen 2">
+            <div class="details">Detalles de la Imagen 2</div>
+        </div>
+        <div class="page">
+            <img src="/img/Modelo32frente.jpeg" alt="Descripción de la Imagen 3">
+            <div class="details">Detalles de la Imagen 3</div>
+        </div>
+        <div class="page">
+            <img src="/img/Modelo150espalda.jpeg" alt="Descripción de la Imagen 4">
+            <div class="details">Detalles de la Imagen 4</div>
+        </div>
+    </div>
 
 </body>
 </html>

@@ -1,68 +1,144 @@
 body {
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
-    background-color: lightgrey;
+    font-family: Arial, sans-serif;
 }
-h3{
-text-align: center;
-font-family: cursive;
+
+#magazine {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
 }
-#flipbook {
-    width: 300px;
-    height:600px;
-    margin: auto;
-}
-.page {
-    background-color: white;
-    width: 100%;
-    height: 100%;
+
+.turn-page {
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.title {
+    position: absolute;
+    top: 20px;
+    left: 20px; /* Cambio para colocar el título en la esquina superior izquierda */
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
     font-size: 24px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    font-family: 'Georgia', serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
-.page img {
-    max-width: 80%;
-    max-height: 60%;
-    margin-bottom: 20px;
-}
-.details {
+
+.indice {
+    background-image: url('/img/fondo.jpeg'); /* Cambia esta línea con la ruta de tu imagen de fondo */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    font-size: 16px;
-    color: #333;
+    padding: 20px;
+    box-sizing: border-box;
+    flex-direction: column;
 }
-/* Fondos específicos para cada página */
-    .page1 {  
-        background-image: url('/img/paisaje.jpg');
-        background-repeat: no-repeat;
-        background-size: cover;
-         
-    
-    }
-    .page2 { background-image: url('fondo2.jpg'); }
-    .page3 { background-image: url('fondo3.jpg'); }
-    .page4 { background-image: url('fondo4.jpg'); }
 
+.indice h2 {
+    margin-bottom: 20px;
+    font-size: 40px;
+    color: white; /* Ajusta el color del texto para que contraste con el fondo */
+}
 
-    
-    @media (max-width: 800px) {
-        #flipbook {
-            max-width: 100%;
-            max-height: 100%;
-        }
-        .page {
-            font-size: 18px;
-        }
-        .page img {
-            max-width: 70%;
-            max-height: 50%;
-        }
-        .details {
-            font-size: 14px;
-        }
+.indice ul {
+    list-style: none;
+    padding: 0;
+}
+
+.indice ul li {
+    margin: 10px 0;
+    margin-bottom: 40px;
+}
+
+.indice ul li a {
+    text-decoration: none;
+    color: #fff; /* Ajusta el color del texto para que contraste con el fondo */
+    font-size: 24px; /* Ajusta el tamaño del texto */
+    font-family: 'Times New Roman', serif;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 2px solid #fff;
+}
+
+.color-swatch {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.color-swatch .color {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.color-swatch .color:hover {
+    transform: scale(1.1);
+}
+
+.clickable-area {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+}
+
+.left-area {
+    left: 0;
+}
+
+.right-area {
+    right: 0;
+}
+
+@media (max-width: 768px) {
+    #magazine {
+        width: 100vw;
+        height: 100vh;
     }
+
+    .turn-page {
+        font-size: 18px;
+    }
+
+    .indice ul li a {
+        font-size: 16px;
+    }
+
+    .title {
+        font-size: 20px;
+        padding: 8px 16px;
+    }
+}

@@ -1,21 +1,71 @@
 $(document).ready(function() {
-    $("#flipbook").turn({
+    $('#magazine').turn({
         width: '100%',
         height: '100%',
-        autoCenter: true
+        autoCenter: true,
+        display: 'single',
+        acceleration: true,
+        gradients: !$.isTouch,
+        elevation: 50,
+        duration: 3000,
+        when: {
+            turned: function(e, page) {
+                setupIndexNavigation();
+            }
+        }
     });
 
-    function resizeFlipbook() {
-        var flipbook = $("#flipbook");
-        var parent = flipbook.parent();
-        var width = parent.width();
-        var height = parent.height();
-        flipbook.turn('size', width, height);
+    function setupIndexNavigation() {
+        $('.goto-page').off('click').on('click', function(e) {
+            e.preventDefault();
+            var page = $(this).data('page');
+            $('#magazine').turn('page', page);
+        });
     }
 
-    $(window).resize(function() {
-        resizeFlipbook();
+    $('.clickable-area.left-area').click(function() {
+        $('#magazine').turn('previous');
     });
 
-    resizeFlipbook();
+    $('.clickable-area.right-area').click(function() {
+        $('#magazine').turn('next');
+    });
+
+    var touchStartX = null;
+    var touchStartY = null;
+
+    function handleTouchStart(event) {
+        const firstTouch = event.touches[0];
+        touchStartX = firstTouch.clientX;
+        touchStartY = firstTouch.clientY;
+    }
+
+    function handleTouchMove(event) {
+        if (!touchStartX || !touchStartY) {
+            return;
+        }
+
+        var touchEndX = event.touches[0].clientX;
+        var touchEndY = event.touches[0].clientY;
+
+        var deltaX = touchStartX - touchEndX;
+        var deltaY = touchStartY - touchEndY;
+
+        if (Math.abs(deltaX) > Math.abs(deltaY)) {
+            if (deltaX > 0) {
+                $('#magazine').turn('next');
+            } else {
+                $('#magazine').turn('previous');
+            }
+        }
+
+        touchStartX = null;
+        touchStartY = null;
+    }
+
+    document.addEventListener('touchstart', handleTouchStart, false);
+    document.addEventListener('touchmove', handleTouchMove, false);
+
+    // Initial setup for index navigation
+    setupIndexNavigation();
 });

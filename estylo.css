@@ -34,7 +34,7 @@ body {
 .title {
     position: absolute;
     top: 20px;
-    left: 20px; /* Cambio para colocar el título en la esquina superior izquierda */
+    left: 20px;
     background-color: rgba(0, 0, 0, 0.5);
     color: #fff;
     padding: 10px 20px;
@@ -42,6 +42,26 @@ body {
     font-size: 24px;
     font-family: 'Georgia', serif;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.return-index {
+    position: absolute;
+    top: 60px; /* Justo debajo del título */
+    left: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+    font-family: 'Arial', sans-serif;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+.return-index:hover {
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 .indice {
@@ -84,30 +104,6 @@ body {
     border: 2px solid #fff;
 }
 
-.color-swatch {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    display: flex;
-    gap: 10px;
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 10px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.color-swatch .color {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-.color-swatch .color:hover {
-    transform: scale(1.1);
-}
-
 .clickable-area {
     position: absolute;
     top: 0;
@@ -139,6 +135,11 @@ body {
 
     .title {
         font-size: 20px;
+        padding: 8px 16px;
+    }
+
+    .return-index {
+        font-size: 14px;
         padding: 8px 16px;
     }
 }

@@ -1,53 +1,55 @@
-body {
+body, html {
     margin: 0;
     padding: 0;
-    background-color: #f5f5f5;
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    width: 100vw;
     font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
 }
 
 #magazine {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     position: relative;
+    overflow: hidden; /* Asegura que no haya desbordamiento visual durante las transiciones */
 }
 
 .turn-page {
-    width: 100vw;
-    height: 100vh;
-    background-size: cover;
+    width: 100%;
+    height: 100%;
+    background-size: cover; /* Asegura que la imagen de fondo cubra toda la página sin exceder sus límites */
     background-position: center;
-    background-repeat: no-repeat;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     flex-direction: column;
-    padding: 20px;
-    box-sizing: border-box;
-    position: relative;
+    padding: 0; /* Elimina cualquier padding para evitar problemas con el tamaño total */
+    box-sizing: border-box; /* Asegura que el padding y border no incrementen el tamaño del box */
+    overflow: hidden; /* Previene cualquier desbordamiento durante la animación de cambio de página */
 }
 
 .title {
     position: absolute;
-    top: 20px;
     left: 20px;
     background-color: rgba(0, 0, 0, 0.5);
     color: #fff;
     padding: 10px 20px;
     border-radius: 5px;
-    font-size: 24px;
-    font-family: 'Georgia', serif;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+}
+
+.title {
+    top: 20px;
 }
 
 .return-index {
     position: absolute;
-    top: 60px; /* Justo debajo del título */
-    left: 20px;
+    top: 20px; /* Alineado con el margen superior */
+    right: 20px; /* Alineado con el margen derecho */
     background-color: rgba(0, 0, 0, 0.5);
     color: #fff;
     padding: 10px 20px;
@@ -57,15 +59,14 @@ body {
     font-family: 'Arial', sans-serif;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    margin-top: 20px;
 }
 
 .return-index:hover {
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.7); /* Efecto oscurecimiento al pasar el ratón */
 }
 
 .indice {
-    background-image: url('/img/fondo.jpeg'); /* Cambia esta línea con la ruta de tu imagen de fondo */
+    background-image: url('/img/fondo.jpeg');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -75,33 +76,43 @@ body {
     padding: 20px;
     box-sizing: border-box;
     flex-direction: column;
+    width: 100%;
+    height: auto;  /* Ajustado para que se adapte al contenido */
+    min-height: 100%; /* Asegura que el índice tenga al menos el alto completo de la página */
+    overflow: auto;  /* Permite desplazamiento si el contenido es demasiado grande */
 }
 
 .indice h2 {
-    margin-bottom: 20px;
     font-size: 40px;
-    color: white; /* Ajusta el color del texto para que contraste con el fondo */
+    color: white;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
 }
 
 .indice ul {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 .indice ul li {
-    margin: 10px 0;
-    margin-bottom: 40px;
+    margin: 20px 0; /* Aumenta el margen vertical para más espacio entre botones */
 }
 
 .indice ul li a {
     text-decoration: none;
-    color: #fff; /* Ajusta el color del texto para que contraste con el fondo */
-    font-size: 24px; /* Ajusta el tamaño del texto */
-    font-family: 'Times New Roman', serif;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 10px 20px;
-    border-radius: 5px;
-    border: 2px solid #fff;
+    color: #fff; /* Color de texto */
+    font-size: 24px; /* Tamaño del texto */
+    background-color: rgba(0, 0, 0, 0.5); /* Color de fondo semitransparente */
+    padding: 10px 20px; /* Relleno dentro del botón */
+    border-radius: 5px; /* Bordes redondeados para estética */
+    border: 2px solid #fff; /* Borde blanco para más definición */
+    display: block; /* Hace que el enlace llene el área del li para facilitar la selección */
+    transition: background-color 0.3s ease; /* Transición suave para efectos hover */
+}
+
+.indice ul li a:hover {
+    background-color: rgba(0, 0, 0, 0.7); /* Oscurecimiento del botón al pasar el ratón */
 }
 
 .clickable-area {
@@ -109,6 +120,7 @@ body {
     top: 0;
     bottom: 0;
     width: 50%;
+    z-index: 0; /* Asegura que estén por debajo del icono de WhatsApp */
 }
 
 .left-area {
@@ -119,27 +131,113 @@ body {
     right: 0;
 }
 
-@media (max-width: 768px) {
-    #magazine {
-        width: 100vw;
-        height: 100vh;
-    }
+.whatsapp-icon {
+    position: fixed; /* Cambiado a fixed para que no se mueva */
+    bottom: 20px;
+    left: 50%; /* Centra horizontalmente */
+    transform: translateX(-50%); /* Ajusta la posición para centrar */
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #25D366;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    cursor: pointer;
+}
 
-    .turn-page {
-        font-size: 18px;
+.whatsapp-icon img {
+    width: 70%;
+    height: 70%;
+}
+
+.whatsapp-icon:hover {
+    background-color: #128C7E; /* Solo cambia el color de fondo al pasar el ratón */
+}
+
+
+.company-details {
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo semitransparente */
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    width: 80%;
+    margin: auto;
+}
+
+.company-details h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.company-details h3 {
+    font-size: 28px;
+    margin-top: 30px;
+}
+
+.company-details p {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.social-media {
+    margin-top: 20px;
+}
+
+.social-media a {
+    margin: 0 10px;
+    display: inline-block;
+}
+
+.social-media img {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s ease;
+}
+
+.social-media img:hover {
+    transform: scale(1.2); /* Aumenta el tamaño del icono al pasar el ratón */
+}
+
+@media (max-width: 768px) {
+    .indice ul li {
+        margin: 15px 0; /* Espaciado más reducido para dispositivos más pequeños */
     }
 
     .indice ul li a {
+        padding: 8px 16px; /* Relleno reducido para dispositivos más pequeños */
+        font-size: 20px; /* Tamaño de fuente reducido para mejor adaptabilidad */
+    }
+
+    .whatsapp-icon {
+        width: 40px; /* Tamaño más pequeño del icono en dispositivos móviles */
+        height: 40px; /* Asegura que el icono sea cuadrado */
+    }
+
+    .whatsapp-icon img {
+        width: 60%;
+        height: 60%;
+    }
+    .company-details {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .company-details h2 {
+        font-size: 28px;
+    }
+
+    .company-details h3 {
+        font-size: 22px;
+    }
+
+    .company-details p {
         font-size: 16px;
     }
 
-    .title {
-        font-size: 20px;
-        padding: 8px 16px;
-    }
-
-    .return-index {
-        font-size: 14px;
-        padding: 8px 16px;
+    .social-media img {
+        width: 30px;
+        height: 30px;
     }
 }

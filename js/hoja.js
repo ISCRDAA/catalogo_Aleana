@@ -7,7 +7,7 @@ $(document).ready(function() {
         acceleration: true,
         gradients: !$.isTouch,
         elevation: 50,
-        duration: 3000,
+        duration: 1500,
         when: {
             turned: function(e, page) {
                 setupIndexNavigation();

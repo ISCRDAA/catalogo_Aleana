@@ -48,22 +48,26 @@ body, html {
 
 .return-index {
     position: absolute;
-    top: 20px; /* Alineado con el margen superior */
-    right: 20px; /* Alineado con el margen derecho */
+    top: 20px;
+    right: 20px;
     background-color: rgba(0, 0, 0, 0.5);
     color: #fff;
-    padding: 10px 20px;
+    padding: 15px 25px;
     border-radius: 5px;
     border: none;
-    font-size: 16px;
+    font-size: 18px;
     font-family: 'Arial', sans-serif;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    z-index: 1001;
+    pointer-events: auto; /* Asegura que el botón pueda recibir eventos de clic */
 }
 
 .return-index:hover {
-    background-color: rgba(0, 0, 0, 0.7); /* Efecto oscurecimiento al pasar el ratón */
+    background-color: rgba(0, 0, 0, 0.7);
 }
+
+
 
 .indice {
     background-image: url('/img/fondo.jpeg');
@@ -121,6 +125,7 @@ body, html {
     bottom: 0;
     width: 50%;
     z-index: 0; /* Asegura que estén por debajo del icono de WhatsApp */
+    pointer-events: none; /* Desactiva los eventos de puntero para estas áreas */
 }
 
 .left-area {
@@ -132,12 +137,12 @@ body, html {
 }
 
 .whatsapp-icon {
-    position: fixed; /* Cambiado a fixed para que no se mueva */
+    position: fixed; /* Fijado para que no se mueva */
     bottom: 20px;
     left: 50%; /* Centra horizontalmente */
     transform: translateX(-50%); /* Ajusta la posición para centrar */
-    width: 60px;
-    height: 60px;
+    width: 50px !important; /* Ajusta el tamaño del icono */
+    height: 50px !important; /* Ajusta el tamaño del icono */
     border-radius: 50%;
     background-color: #25D366;
     display: flex;
@@ -145,40 +150,55 @@ body, html {
     align-items: center;
     z-index: 1000; /* Asegura que esté por encima de otros elementos */
     cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Transición suave para efectos hover */
 }
 
 .whatsapp-icon img {
-    width: 70%;
-    height: 70%;
+    width: 100% !important; /* Ajusta el tamaño del icono interno */
+    height: 100% !important; /* Asegura que el icono interno sea cuadrado */
 }
 
 .whatsapp-icon:hover {
+    transform: scale(1.2); /* Aumenta el tamaño del icono al pasar el ratón */
     background-color: #128C7E; /* Solo cambia el color de fondo al pasar el ratón */
 }
 
 
+
+
+.company-page {
+    background-image: url('/img/fondo.jpeg'); /* Ruta de tu imagen de fondo */
+    background-size: cover; /* Asegura que la imagen cubra toda la página */
+    background-position: center; /* Centra la imagen */
+    overflow-y: auto; /* Habilita el desplazamiento vertical */
+}
+
 .company-details {
-    background-color: rgba(255, 255, 255, 0.9); /* Fondo semitransparente */
+    background-image: url('/img/fondo.jpeg'); /* Fondo semitransparente */
     padding: 40px;
     border-radius: 10px;
     text-align: center;
     width: 80%;
     margin: auto;
+    box-sizing: border-box;
 }
 
 .company-details h2 {
     font-size: 36px;
     margin-bottom: 20px;
+    color: white;
 }
 
 .company-details h3 {
     font-size: 28px;
     margin-top: 30px;
+    color: white;
 }
 
 .company-details p {
     font-size: 18px;
     margin: 10px 0;
+    color: white;
 }
 
 .social-media {
@@ -188,6 +208,7 @@ body, html {
 .social-media a {
     margin: 0 10px;
     display: inline-block;
+   
 }
 
 .social-media img {
@@ -200,6 +221,75 @@ body, html {
     transform: scale(1.2); /* Aumenta el tamaño del icono al pasar el ratón */
 }
 
+.instructions-page {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.instructions-content {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 10px;
+    text-align: left;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+}
+
+.instructions-content h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: 'Georgia', serif;
+    color: #333;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.instructions-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.instructions-content ul li {
+    font-size: 18px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    color: #555;
+}
+
+.instructions-content ul li strong {
+    margin-right: 10px;
+    font-weight: bold;
+    color: #333;
+}
+
+.return-index-icon,
+.whatsapp-icon-sample {
+    font-size: 24px;
+    margin-left: 10px;
+    display: inline-block;
+    color: #007BFF;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.return-index-icon:hover,
+.whatsapp-icon-sample:hover {
+    transform: scale(3.2);
+    color: #0056b3;
+}
+
+
 @media (max-width: 768px) {
     .indice ul li {
         margin: 15px 0; /* Espaciado más reducido para dispositivos más pequeños */
@@ -211,8 +301,8 @@ body, html {
     }
 
     .whatsapp-icon {
-        width: 40px; /* Tamaño más pequeño del icono en dispositivos móviles */
-        height: 40px; /* Asegura que el icono sea cuadrado */
+        width: 80px; /* Tamaño más pequeño del icono en dispositivos móviles */
+        height: 80px; /* Asegura que el icono sea cuadrado */
     }
 
     .whatsapp-icon img {
@@ -239,5 +329,22 @@ body, html {
     .social-media img {
         width: 30px;
         height: 30px;
+    }
+    .instructions-content {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .instructions-content h2 {
+        font-size: 28px;
+    }
+
+    .instructions-content ul li {
+        font-size: 16px;
+    }
+
+    .return-index-icon,
+    .whatsapp-icon-sample {
+        font-size: 20px;
     }
 }

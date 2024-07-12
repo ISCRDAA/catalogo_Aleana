@@ -11,19 +11,33 @@
 <body>
 
 <div id="magazine">
+    
+
+    <div class="turn-page instructions-page">
+        <div class="instructions-content">
+            <h2>Instrucciones de Navegación</h2>
+            <ul>
+                <li><strong>Cambiar de Página:</strong> Desliza hacia la izquierda o la derecha para cambiar de página.</li>
+                <li><strong>Regresar al Índice:</strong> Haz clic en el botón <span class="return-index-icon">🔙</span> en la esquina superior derecha para regresar al índice.</li>
+                <li><strong>Enviar Mensaje por WhatsApp:</strong> Si estás interesado en algún modelo, haz clic en el ícono de WhatsApp <span class="whatsapp-icon-sample">📱</span> en la parte inferior central para enviar un mensaje directo.</li>
+            </ul>
+        </div>
+    </div>
+
     <div class="full-page turn-page" style="background-image: url('/img/portada.jpeg');"></div>
+
     <div class="turn-page indice">
         <h2>Índice</h2>
         <ul>
-            <li><a href="#" class="goto-page" data-page="3">Capas</a></li>
+            <li><a href="#" class="goto-page" data-page="4">Capas</a></li>
             <li><a href="#" class="goto-page" data-page="10">Chaleco</a></li>
-            <li><a href="#" class="goto-page" data-page="12">Pantalon</a></li>
+            <li><a href="#" class="goto-page" data-page="14">Pantalon</a></li>
         </ul>
     </div>
     <div class="turn-page" style="background-image: url('/img/capa azul frente.jpeg');">
         <div class="title">Modelo 205</div>
         <button class="return-index" onclick="gotoIndex()">Regresar al Índice</button>
-        <a href="https://wa.me/527752050635?text=Estoy%20interesado%20en%20el%20modelo%20205" class="whatsapp-icon" target="_blank"><img src="/img/logo_whats.png" alt="logo"></a>
+        <a href="https://wa.me/527757714006?text=Estoy%20interesado%20en%20el%20modelo%20205" class="whatsapp-icon" target="_blank"><img src="/img/logo_whats.png" alt="logo"></a>
     </div>
     <div class="turn-page" style="background-image: url('/img/capa azul frente 2.jpeg');">
         <div class="title">Título de la Página</div>
@@ -73,25 +87,29 @@
         <div class="title">Pantalon</div>
         <button class="return-index" onclick="gotoIndex()">Regresar al Índice</button>
     </div>
-    <div class="turn-page company-page" style="background-image: url('/img/fondo.jpeg');">
+    <div class="turn-page company-page">
         <div class="company-details">
             <h2>Sobre Nosotros</h2>
             <p>Somos una empresa dedicada a...</p>
+            <iframe width="350" height="350" src="https://www.youtube.com/embed/q7ERCDSqeOw?si=Oy68sxbU_NTPtnWI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             <h3>Contacto</h3>
-            <p>Dirección: Calle Falsa 123, Ciudad, País</p>
-            <p>Teléfono: +52 1 234 567 8901</p>
-            <p>Email: contacto@empresa.com</p>
+            <p>Dirección:Privada Fresno #102,Colonia Benito juarez, Cuautepec de Hinojosa Hidalgo</p>
+            <p>Teléfono: +52 7757541657 </p>
+            <p>Email: aleana_alroga@hotmail.com</p>
             <h3>Síguenos en nuestras redes sociales</h3>
             <div class="social-media">
-                <a href="https://facebook.com/tuempresa" target="_blank"><img src="/img/logo_face.png" alt="Facebook"></a>
+                <a href="https://www.facebook.com/AleCarlup?locale=es_LA" target="_blank"><img src="/img/logo_face.png" alt="Facebook"></a>
                 
-                <a href="https://instagram.com/tuempresa" target="_blank"><img src="/img/logo_instagram.png" alt="Instagram"></a>
+                <a href="https://www.instagram.com/aleana_carlup_mx/" target="_blank"><img src="/img/logo_instagram.png" alt="Instagram"></a>
                 <!-- Añade más enlaces a redes sociales según sea necesario -->
             </div>
+
         </div>
     </div>
-    
 </div>
+
+
+
 
 <div class="clickable-area left-area"></div>
 <div class="clickable-area right-area"></div>
@@ -99,7 +117,7 @@
 <script src="/js/hoja.js"></script>
 <script>
     function gotoIndex() {
-        $('#magazine').turn('page', 2);
+        $('#magazine').turn('page', 3);
     }
 
     $(document).ready(function() {

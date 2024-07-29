@@ -61,6 +61,13 @@ body, html {
     transition: background-color 0.3s ease;
     z-index: 1001;
     pointer-events: auto; /* Asegura que el botón pueda recibir eventos de clic */
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: auto;
+    text-align: center;
+    white-space: nowrap;
 }
 
 .return-index:hover {
@@ -124,7 +131,7 @@ body, html {
     top: 0;
     bottom: 0;
     width: 50%;
-    z-index: 0; /* Asegura que estén por debajo del icono de WhatsApp */
+    z-index: 1000; /* Asegura que estén por debajo del icono de WhatsApp */
     pointer-events: none; /* Desactiva los eventos de puntero para estas áreas */
 }
 
